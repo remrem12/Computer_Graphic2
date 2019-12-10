@@ -1,0 +1,5 @@
+D:\Dropbox\Study\Computer Graphic\Đồ án 3D\SharpGLTexturesSample\obj\Debug\SharpGLTexturesSample.csprojAssemblyReference.cache
+D:\Dropbox\Study\Computer Graphic\Đồ án 3D\SharpGLTexturesSample\obj\Debug\SharpGLTexturesSample.FormSharpGLTexturesSample.resources
+D:\Dropbox\Study\Computer Graphic\Đồ án 3D\SharpGLTexturesSample\obj\Debug\SharpGLTexturesSample.Properties.Resources.resources
+D:\Dropbox\Study\Computer Graphic\Đồ án 3D\SharpGLTexturesSample\obj\Debug\SharpGLTexturesSample.csproj.GenerateResource.cache
+D:\Dropbox\Study\Computer Graphic\Đồ án 3D\SharpGLTexturesSample\obj\Debug\SharpGLTexturesSample.csproj.CoreCompileInputs.cache
