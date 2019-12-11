@@ -74,8 +74,8 @@ namespace Mini_3D_Paint
         public Point position = new Point();
         public Point rotation = new Point();
         public Point scale = new Point(1, 1, 1); 
-        public Color color = new Color();  
-
+        public Color color = new Color();
+        //public bool selected = false;
         //Vẽ hình khối
         public virtual void Draw(OpenGL gl, bool selected = false) { }         
         

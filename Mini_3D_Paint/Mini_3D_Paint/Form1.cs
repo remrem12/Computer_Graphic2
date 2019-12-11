@@ -17,7 +17,7 @@ namespace Mini_3D_Paint
         List<Geometry> shapes = new List<Geometry>(); //Các hình đã vẽ
         int n_shapes = 0; //Số lượng hình đã vẽ            
         Color currentColor = new Color(255, 255, 255);   //Màu hiện tại  
-
+        int selected = -1;
         Camera camera = new Camera();
 
         public Form1()
@@ -38,7 +38,11 @@ namespace Mini_3D_Paint
             
             //Vẽ lại các hình
             foreach (Geometry s in shapes)
-                s.Draw(gl);
+            {
+                if (s == shapes[selected])
+                    s.Draw(gl, true);
+                else s.Draw(gl);
+            }
 
             gl.Flush();
         }
@@ -73,7 +77,7 @@ namespace Mini_3D_Paint
         private void lstObject_SelectedIndexChanged(object sender, EventArgs e)
         {
             Geometry s = shapes[lstObject.SelectedIndex];
-
+            selected = lstObject.SelectedIndex;
             tbPosionX.Text = s.position.X.ToString();
             tbPosionY.Text = s.position.Y.ToString();
             tbPosionZ.Text = s.position.Z.ToString();
@@ -270,7 +274,7 @@ namespace Mini_3D_Paint
             camera = new Camera();
 
 
-            //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
         }
 
         private void openGLControl_Resized(object sender, EventArgs e)
@@ -312,7 +316,7 @@ namespace Mini_3D_Paint
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             this.renderShape();
             gl.Flush();
-
+            //shapes[selected].Draw(gl, true);
         }
 
         
