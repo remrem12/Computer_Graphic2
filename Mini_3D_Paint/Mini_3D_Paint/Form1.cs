@@ -85,7 +85,8 @@ namespace Mini_3D_Paint
             tbScaleX.Text = s.scale.X.ToString();
             tbScaleY.Text = s.scale.Y.ToString();
             tbScaleZ.Text = s.scale.Z.ToString();
-
+            
+            //this.renderShape();
             s.Draw(gl, true);
         }
 
@@ -247,7 +248,7 @@ namespace Mini_3D_Paint
 
         private void btnColor_Click(object sender, EventArgs e)
         {
-            //Chọn màu viền
+            //Chọn màu tô
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 currentColor = new Color(colorDialog.Color.R, colorDialog.Color.G, colorDialog.Color.B);
@@ -300,46 +301,91 @@ namespace Mini_3D_Paint
         private void openGLControl_OpenGLDraw(object sender, RenderEventArgs args)
         {
             gl = openGLControl.OpenGL;
+            this.drawGrid(gl);
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
             gl.LoadIdentity();
             gl.LookAt(
-                camera.viewX, camera.viewY, camera.viewZ,
+                camera.viewX - 3/2, camera.viewY - 3/2, camera.viewZ -3/2,
                 0, 0, 0,
                 0, 0, 1);
-            //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+            this.renderShape();
             gl.Flush();
 
         }
 
-        private void lstCamera_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*Camera c = cameras[lstCamera.SelectedIndex];
-            gl.LookAt(c.viewX, c.viewY, c.viewZ, 0, 0, 0, 0, 0, 1);
-            renderShape();*/
-
-        }
-
+        
         private void openGLControl_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Z)        // Mạnh
                 camera.zoomIn();
             if (e.KeyCode == Keys.X)
                 camera.zoomOut();
-            if (e.KeyCode == Keys.Left) ;     // Nam
-            if (e.KeyCode == Keys.Right) ;    // Phú
-            if (e.KeyCode == Keys.Up) ;       // Nghĩa
-            if (e.KeyCode == Keys.Down) ;     // Mạnh
+            if (e.KeyCode == Keys.Left)     // Nam
+                camera.horizontalRotate(10);
+            if (e.KeyCode == Keys.Right)     // Phú
+                camera.horizontalRotate(-10);
+            if (e.KeyCode == Keys.Up)        // Nghĩa
+                camera.verticalRotate(10);
+            if (e.KeyCode == Keys.Down)      // Mạnh
+                camera.verticalRotate(-10);
 
 
         }
-
-        private void btnCamera_Click(object sender, EventArgs e)
+        
+        void drawGrid(OpenGL gl)    // vẽ trục tọa độ
         {
-            /*Camera c = new Camera();
-            cameras.Add(c);
-            lstCamera.Items.Add(c.name);
-            lstCamera.SelectedIndex = cameras.Count - 1;
-            //MessageBox.Show();*/
+            gl.LineWidth(1.0f);
+            int size = 4;
+            for (int i = 0; i < 10; i++)
+            {
+                gl.Begin(OpenGL.GL_LINES);
+                gl.Color(1.0, 1.0, 1.0, 1.0);
+                gl.Vertex(size, i, 0);
+                gl.Vertex(-size, i, 0);
+                gl.End();
+
+                gl.Begin(OpenGL.GL_LINES);
+                gl.Color(1.0, 1.0, 1.0, 1.0);
+                gl.Vertex(size, -i, 0);
+                gl.Vertex(-size, -i, 0);
+                gl.End();
+            }
+
+            for (int i = 1; i <= 10; i++)
+            {
+                gl.Begin(OpenGL.GL_LINES);
+                gl.Color(1.0, 1.0, 1.0, 1.0);
+                gl.Vertex(i, size, 0);
+                gl.Vertex(i, -size, 0);
+                gl.End();
+
+                gl.Begin(OpenGL.GL_LINES);
+                gl.Color(1.0, 1.0, 1.0, 1.0);
+                gl.Vertex(-i, size, 0);
+                gl.Vertex(-i, -size, 0);
+                gl.End();
+            }
+            // 3 trục tọa độ x(đỏ), y(xanh lá), z(xanh lục)
+            gl.Begin(OpenGL.GL_LINES);
+            gl.Color(1.0, 0.0, 0.0, 1.0);
+            gl.Vertex(0, 0, 10);
+            gl.Vertex(0, 0, -10);
+            gl.End();
+
+            gl.Begin(OpenGL.GL_LINES);
+            gl.Color(0.0, 1.0, 0.0, 1.0);
+            gl.Vertex(0, 10, 0);
+            gl.Vertex(0, -10, 0);
+            gl.End();
+
+            gl.Begin(OpenGL.GL_LINES);
+            gl.Color(0.0, 0.0, 1.0, 1.0);
+            gl.Vertex(10, 0, 0);
+            gl.Vertex(-10, 0, 0);
+            gl.End();
+
         }
 
         private void label1_Click(object sender, EventArgs e)

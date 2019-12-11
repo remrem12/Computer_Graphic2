@@ -161,13 +161,13 @@ namespace Mini_3D_Paint
                 gl.Vertex(vertex[i]);
             gl.End();
             
-                int[] index = new int[]
-                 {
-                    0,1,1,2,2,3,3,0,
-                    4,5,5,6,6,7,7,4,
-                    0,4,1,5,2,6,3,7
-                 };
-                DrawBorder(gl, selected, vertex, index);
+            int[] index = new int[]
+                {
+                0,1,1,2,2,3,3,0,
+                4,5,5,6,6,7,7,4,
+                0,4,1,5,2,6,3,7
+                };
+            DrawBorder(gl, selected, vertex, index);
             
             gl.PopMatrix();
         }                
@@ -226,12 +226,12 @@ namespace Mini_3D_Paint
                 gl.Vertex(vertex[i]);
             gl.End();
 
-               int[] index = new int[]
-                {
-                    0,1,1,2,2,3,3,0,
-                    4,0,4,1,4,2,4,3
-                };
-                DrawBorder(gl, selected, vertex, index);            
+            int[] index = new int[]
+            {
+                0,1,1,2,2,3,3,0,
+                4,0,4,1,4,2,4,3
+            };
+            DrawBorder(gl, selected, vertex, index);            
 
             gl.PopMatrix();
         }
@@ -294,13 +294,13 @@ namespace Mini_3D_Paint
                 gl.Vertex(vertex[i]);
             gl.End();
 
-               int[] index = new int[]
-                 {
-                    0,1,1,2,2,0,
-                    3,4,4,5,5,3,
-                    0,3,1,4,2,5
-                 };
-                DrawBorder(gl, selected, vertex, index);
+            int[] index = new int[]
+                {
+                0,1,1,2,2,0,
+                3,4,4,5,5,3,
+                0,3,1,4,2,5
+                };
+            DrawBorder(gl, selected, vertex, index);
            
             gl.PopMatrix();
         }

@@ -20,7 +20,6 @@ namespace Mini_3D_Paint
         public double viewY;
         public double viewZ;
        
-        double deg;
 
         public Camera()
         {
@@ -45,9 +44,22 @@ namespace Mini_3D_Paint
             viewZ *= 1.1;
         }
 
-        public void horizontalRotate()
+        public void horizontalRotate(double deg)  // xoay ngang
         {
+            // transform to radians
+            double radians = deg * Math.PI / 180.0f;
+            double oldViewX = viewX, oldViewY = viewY;
+            viewX = oldViewX * Math.Cos(radians) - oldViewY * Math.Sin(radians);
+            viewY = oldViewX * Math.Sin(radians) + oldViewY * Math.Cos(radians);
+    
+        }
 
+        public void verticalRotate(int deg)
+        {
+            double radians = deg * Math.PI / 180.0f;
+            double oldViewX = viewX, oldViewY = viewY;
+            viewX = oldViewX * Math.Cos(radians) - oldViewY * Math.Sin(radians);
+            viewY = oldViewY * Math.Sin(radians) + oldViewX * Math.Cos(radians);
         }
     }
 }
