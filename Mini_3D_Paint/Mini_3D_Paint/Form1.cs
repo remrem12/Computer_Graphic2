@@ -305,18 +305,18 @@ namespace Mini_3D_Paint
         private void openGLControl_OpenGLDraw(object sender, RenderEventArgs args)
         {
             gl = openGLControl.OpenGL;
-            this.drawGrid(gl);
+            
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
             gl.LoadIdentity();
             gl.LookAt(
-                camera.viewX - 3/2, camera.viewY - 3/2, camera.viewZ -3/2,
+                camera.viewX, camera.viewY, camera.viewZ,
                 0, 0, 0,
                 0, 0, 1);
 
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             this.renderShape();
+            this.drawGrid(gl);
             gl.Flush();
-            //shapes[selected].Draw(gl, true);
         }
 
         
@@ -331,9 +331,9 @@ namespace Mini_3D_Paint
             if (e.KeyCode == Keys.Right)     // Phú
                 camera.horizontalRotate(-10);
             if (e.KeyCode == Keys.Up)        // Nghĩa
-                camera.verticalRotate(10);
-            if (e.KeyCode == Keys.Down)      // Mạnh
                 camera.verticalRotate(-10);
+            if (e.KeyCode == Keys.Down)      // Mạnh
+                camera.verticalRotate(10);
 
 
         }
@@ -341,8 +341,8 @@ namespace Mini_3D_Paint
         void drawGrid(OpenGL gl)    // vẽ trục tọa độ
         {
             gl.LineWidth(1.0f);
-            int size = 4;
-            for (int i = 0; i < 10; i++)
+            int size = 10;
+            for (int i = 0; i < size; i++)
             {
                 gl.Begin(OpenGL.GL_LINES);
                 gl.Color(1.0, 1.0, 1.0, 1.0);
@@ -357,7 +357,7 @@ namespace Mini_3D_Paint
                 gl.End();
             }
 
-            for (int i = 1; i <= 10; i++)
+            for (int i = 0; i < size; i++)
             {
                 gl.Begin(OpenGL.GL_LINES);
                 gl.Color(1.0, 1.0, 1.0, 1.0);
@@ -372,24 +372,47 @@ namespace Mini_3D_Paint
                 gl.End();
             }
             // 3 trục tọa độ x(đỏ), y(xanh lá), z(xanh lục)
+
+            gl.Color(1.0, 0.0, 0.0); // red x
             gl.Begin(OpenGL.GL_LINES);
-            gl.Color(1.0, 0.0, 0.0, 1.0);
-            gl.Vertex(0, 0, 10);
-            gl.Vertex(0, 0, -10);
+            // x aix
+
+            gl.Vertex(-4.0, 0.0f, 0.0f);
+            gl.Vertex(4.0, 0.0f, 0.0f);
+
+            gl.Vertex(4.0, 0.0f, 0.0f);
+            gl.Vertex(3.0, 1.0f, 0.0f);
+
+            gl.Vertex(4.0, 0.0f, 0.0f);
+            gl.Vertex(3.0, -1.0f, 0.0f);
             gl.End();
 
+            // y 
+            gl.Color(0.0, 1.0, 0.0); // green y
             gl.Begin(OpenGL.GL_LINES);
-            gl.Color(0.0, 1.0, 0.0, 1.0);
-            gl.Vertex(0, 10, 0);
-            gl.Vertex(0, -10, 0);
+            gl.Vertex(0.0, -4.0f, 0.0f);
+            gl.Vertex(0.0, 4.0f, 0.0f);
+
+            gl.Vertex(0.0, 4.0f, 0.0f);
+            gl.Vertex(1.0, 3.0f, 0.0f);
+
+            gl.Vertex(0.0, 4.0f, 0.0f);
+            gl.Vertex(-1.0, 3.0f, 0.0f);
             gl.End();
 
+            // z 
+            gl.Color(0.0, 0.0, 1.0); // blue z
             gl.Begin(OpenGL.GL_LINES);
-            gl.Color(0.0, 0.0, 1.0, 1.0);
-            gl.Vertex(10, 0, 0);
-            gl.Vertex(-10, 0, 0);
-            gl.End();
+            gl.Vertex(0.0, 0.0f, -4.0f);
+            gl.Vertex(0.0, 0.0f, 4.0f);
 
+
+            gl.Vertex(0.0, 0.0f, 4.0f);
+            gl.Vertex(0.0, 1.0f, 3.0f);
+
+            gl.Vertex(0.0, 0.0f, 4.0f);
+            gl.Vertex(0.0, -1.0f, 3.0f);
+            gl.End();
         }
 
         private void label1_Click(object sender, EventArgs e)

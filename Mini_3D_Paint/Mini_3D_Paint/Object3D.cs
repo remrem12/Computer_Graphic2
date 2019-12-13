@@ -75,6 +75,7 @@ namespace Mini_3D_Paint
         public Point rotation = new Point();
         public Point scale = new Point(1, 1, 1); 
         public Color color = new Color();
+        public Point center = new Point(0, 0, 0);
         //public bool selected = false;
         //Vẽ hình khối
         public virtual void Draw(OpenGL gl, bool selected = false) { }         
@@ -114,30 +115,31 @@ namespace Mini_3D_Paint
                
         public override void Draw(OpenGL gl, bool selected = false)
         {
-            /* 
-             *    2 -  - - - 3
-             *  / |        / |
-             * 1 - - - - 0   |
-             * |  |      |   |
-             * |  6 - -  | - 7
-             * |/        | /  
-             * 5 - - - - 4
+            /*  gốc toạ độ ở tâm hình lập phương
+             *  
+             *    4 -| - - - 5
+             *  / |  |     / |
+             * 7 - - | - 6   |
+             *-|--|--|---|---|----
+             * |  0 -| - | - 1
+             * |/    |   | /  
+             * 3 - - | - 2
             */
 
             float x = position.X, y = position.Y, z = position.Z,
-               a = 3;
+               a = 2;
 
             float[][] vertex = new float[][]
             {
-                new float[]{ x, y, z },
-                new float[]{ x, y - a, z },
-                new float[]{ x - a, y - a, z },
-                new float[]{ x - a, y, z },
-
-                new float[]{ x, y, z - a },
-                new float[]{ x, y - a, z - a },
                 new float[]{ x - a, y - a, z - a },
-                new float[] {x - a, y, z - a}
+                new float[]{ x - a, y + a, z - a },
+                new float[]{ x + a, y + a, z - a },
+                new float[]{ x + a, y - a, z - a },
+
+                new float[]{ x - a, y - a, z + a },
+                new float[]{ x - a, y + a, z + a },
+                new float[]{ x + a, y + a, z + a },
+                new float[]{ x + a, y - a, z + a }
             };
 
             
@@ -194,15 +196,15 @@ namespace Mini_3D_Paint
             */
 
             float x = position.X, y = position.Y, z = position.Z,
-                a = 3, h = 3;
+                  a = 3;
             float[][] vertex = new float[][]
             {
                 new float[]{ x - a, y - a, z - a },
-                new float[]{ x - a, y, z - a },
-                new float[]{ x, y, z - a },
-                new float[]{ x, y - a, z - a },
+                new float[]{ x - a, y + a, z - a },
+                new float[]{ x + a, y + a, z - a },
+                new float[]{ x + a, y - a, z - a },
 
-                new float[]{ x - a/2.0f, y - a/2.0f, z }
+                new float[]{ x, y, z + a }
             };
 
             int[] vertexIndex = new int[] {
