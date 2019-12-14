@@ -289,13 +289,55 @@ namespace Mini_3D_Paint
             gl.Scale(scale.X, scale.Y, scale.Z);
             gl.Rotate(rotation.X, rotation.Y, rotation.Z);
 
+            //vẽ các mặt
+
+            //dưới 0123
             gl.Begin(OpenGL.GL_QUADS);
-            for (int i = 0; i < 4; i++)
-                gl.Vertex(vertex[i]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[3]);
             gl.End();
-            gl.Begin(OpenGL.GL_TRIANGLES);
-            foreach (int i in vertexIndex)
-                gl.Vertex(vertex[i]);
+
+            //trái 034
+            gl.Begin(OpenGL.GL_TRIANGLES);            
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[4]);
+            gl.End();
+            //phải 214
+            gl.Begin(OpenGL.GL_TRIANGLES);            
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[4]);
+            gl.End();
+            //trước 324
+            gl.Begin(OpenGL.GL_TRIANGLES);            
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[4]); 
+            gl.End();
+            //sau 104
+            gl.Begin(OpenGL.GL_TRIANGLES);            
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[4]);
             gl.End();
 
             int[] index = new int[]
@@ -355,14 +397,62 @@ namespace Mini_3D_Paint
             gl.Scale(scale.X, scale.Y, scale.Z);
             gl.Rotate(rotation.X, rotation.Y, rotation.Z);
 
-            gl.Begin(OpenGL.GL_QUADS);
-            foreach (int i in vertexIndex)
-                gl.Vertex(vertex[i]);
+            //vẽ các mặt
+
+            //trên 354
+            gl.Begin(OpenGL.GL_TRIANGLES);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[5]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[4]);
             gl.End();
 
+            // dưới 021
             gl.Begin(OpenGL.GL_TRIANGLES);
-            for (int i = 0; i < 6; i++)
-                gl.Vertex(vertex[i]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0.5f, 1);
+            gl.Vertex(vertex[1]);
+            gl.End();
+
+            //trái 3520
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[5]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[0]);
+            gl.End();
+
+            //phải 5412
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[5]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[4]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[2]);
+            gl.End();
+
+            //sau 4301
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[4]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[1]);
             gl.End();
 
             int[] index = new int[]
