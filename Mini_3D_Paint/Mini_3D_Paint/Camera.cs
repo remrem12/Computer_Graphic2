@@ -56,54 +56,57 @@ namespace Mini_3D_Paint
 
         public void verticalRotate(double deg)
         {
-            /*double radians = deg * Math.PI / 180.0f;
-            double oldviewX = viewX, oldviewY = viewY, oldviewZ = viewZ;
-            viewZ = oldviewZ * Math.Cos(radians) + oldviewY * Math.Sin(radians);
-            viewY = oldviewY * Math.Cos(radians) - oldviewZ * Math.Sin(radians);*/
+            double hypoXY = Math.Sqrt(viewX * viewX + viewY * viewY);
+            double hypoXYZ = Math.Sqrt(hypoXY * hypoXY + viewZ * viewZ);
+            //if (viewX < 0 && viewY < 0) hypoXY = -hypoXY;
+            double rootAngle = Math.Acos(hypoXY / hypoXYZ); // radians
+            double cosX = viewX / hypoXY;
+            double cosY = viewY / hypoXY;
+            double rootDeg = rootAngle * 180 / Math.PI;
+            rootDeg += deg;
 
-            double x = 0, z = 0, y = 0;
-            if (viewX <= 1 && viewY <= 1)
+            double radians = rootDeg * Math.PI / 180;
+            hypoXY = hypoXYZ * Math.Cos(radians);
+            viewX = hypoXY * cosX;
+            viewY = hypoXY * cosY;
+            viewZ = hypoXYZ * Math.Sin(radians);
+
+
+
+            /*if (rootDeg >= 0 && rootDeg <= 90)
             {
-                x = 0;
+                double radians = rootDeg * Math.PI / 180;
+                hypoXY = hypoXYZ * Math.Cos(radians);
+                viewX = hypoXY * cosX;
+                viewY = hypoXY * cosY;
+                viewZ = hypoXYZ * Math.Sin(radians);
             }
 
-            int flag = 1;
-            //if(viewX <=0 )flag = -1;
-            double t = (1 * viewX) / Math.Sqrt(viewX * viewX + viewY * viewY);
-            double alpha = Math.Acos(t);
-
-
-
-            //double sina = Math.Sqrt(1 - cosa * cosa);
-            if ((viewX >= 0 && viewY >= 0 || viewX < 0 && viewY >= 0))
-            {
-                if (flag == 1)
-                    alpha = 2 * Math.PI - alpha;
+            if (rootDeg > 90 && rootDeg <= 180) {
+                rootDeg = 180 - rootDeg;
+                double radians = rootDeg * Math.PI / 180;
+                hypoXY = hypoXYZ * Math.Cos(radians);
+                viewX = hypoXY * cosX;
+                viewY = hypoXY * cosY;
+                viewZ = hypoXYZ * Math.Sin(radians);
             }
-
-            x = viewX;
-            y = viewY;
-
-
-            viewX = x * Math.Cos(alpha) - y * Math.Sin(alpha);
-            viewY = x * Math.Sin(alpha) + y * Math.Cos(alpha);
-            
-            //quay quanh y
-            deg = deg * Math.PI / 180;
-            z = viewZ;
-            x = viewX;
-
-            viewX = x * Math.Cos(deg) + z * Math.Sin(deg);
-            viewZ = -x * Math.Sin(deg) + z * Math.Cos(deg);
-
-            alpha = -alpha;
-
-            x = viewX;
-            y = viewY;
-
-
-            viewX = x * Math.Cos(alpha) - y * Math.Sin(alpha);
-            viewY = x * Math.Sin(alpha) + y * Math.Cos(alpha);
+            if (rootDeg < 0 && rootDeg >= -90)
+            {
+                rootDeg = -rootDeg;
+                double radians = rootDeg * Math.PI / 180;
+                hypoXY = hypoXYZ * Math.Cos(radians);
+                viewX = hypoXY * cosX;
+                viewY = hypoXY * cosY;
+                viewZ = -hypoXYZ * Math.Sin(radians);
+            }
+            else
+            {
+                double radians = rootDeg * Math.PI / 180;
+                hypoXY = hypoXYZ * Math.Cos(radians);
+                viewX = hypoXY * cosX;
+                viewY = hypoXY * cosY;
+                viewZ = -hypoXYZ * Math.Sin(radians);
+            }*/
         }
     }
 }
