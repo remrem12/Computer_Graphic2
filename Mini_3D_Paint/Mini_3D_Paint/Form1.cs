@@ -372,7 +372,7 @@ namespace Mini_3D_Paint
                 gl.End();
             }
             // 3 trục tọa độ x(đỏ), y(xanh lá), z(xanh lục)
-
+            gl.LineWidth(3.0f);
             gl.Color(1.0, 0.0, 0.0); // red x
             gl.Begin(OpenGL.GL_LINES);
             // x aix
