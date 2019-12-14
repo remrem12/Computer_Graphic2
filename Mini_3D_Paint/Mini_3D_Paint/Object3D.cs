@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -120,26 +120,27 @@ namespace Mini_3D_Paint
              *    4 -| - - - 5
              *  / |  |     / |
              * 7 - - | - 6   |
-             *-|--|--|---|---|----
+             *-|--|--|O--|---|----
              * |  0 -| - | - 1
              * |/    |   | /  
              * 3 - - | - 2
-            */
+             * --a---
+            */ 
 
             float x = position.X, y = position.Y, z = position.Z,
                a = 2;
 
             float[][] vertex = new float[][]
             {
-                new float[]{ x - a, y - a, z - a },
-                new float[]{ x - a, y + a, z - a },
-                new float[]{ x + a, y + a, z - a },
-                new float[]{ x + a, y - a, z - a },
+                new float[]{ x - a, y - a, z },
+                new float[]{ x - a, y + a, z },
+                new float[]{ x + a, y + a, z },
+                new float[]{ x + a, y - a, z },
 
-                new float[]{ x - a, y - a, z + a },
-                new float[]{ x - a, y + a, z + a },
-                new float[]{ x + a, y + a, z + a },
-                new float[]{ x + a, y - a, z + a }
+                new float[]{ x - a, y - a, z + 2*a },
+                new float[]{ x - a, y + a, z + 2*a },
+                new float[]{ x + a, y + a, z + 2*a },
+                new float[]{ x + a, y - a, z + 2*a }
             };
 
             
@@ -196,15 +197,15 @@ namespace Mini_3D_Paint
             */
 
             float x = position.X, y = position.Y, z = position.Z,
-                  a = 3;
+                  a = 2;
             float[][] vertex = new float[][]
             {
-                new float[]{ x - a, y - a, z - a },
-                new float[]{ x - a, y + a, z - a },
-                new float[]{ x + a, y + a, z - a },
-                new float[]{ x + a, y - a, z - a },
+                new float[]{ x - a, y - a, z },
+                new float[]{ x - a, y + a, z },
+                new float[]{ x + a, y + a, z },
+                new float[]{ x + a, y - a, z },
 
-                new float[]{ x, y, z + a }
+                new float[]{ x, y, z + 2*a }
             };
 
             int[] vertexIndex = new int[] {
@@ -260,19 +261,18 @@ namespace Mini_3D_Paint
              *     2     
             */
 
-            float a = 3,
-                h = 3,
+            float a = 2,
                 g = a * (float)(Math.Sqrt(3) / 2),
                 x = position.X , y = position.Y, z = position.Z;
             float[][] vertex = new float[][]
             {
-                new float[]{ x - a, y - a, z - h },
-                new float[]{ x - a, y, z - h },
-                new float[]{ x - g, y - a/2, z - h },
+                new float[]{ x - a / 2, y - g, z },
+                new float[]{ x - a / 2, y + g, z },
+                new float[]{ x + a, y, z },
 
-                new float[]{ x - h, y - h, z },
-                new float[]{ x - a, y, z },
-                new float[]{ x - g, y - a/2, z },
+                new float[]{ x - a / 2, y - g, z + 2*a },
+                new float[]{ x - a / 2, y + g, z + 2*a },
+                new float[]{ x + a, y, z + 2*a },
             };
 
             int[] vertexIndex = new int[] {
