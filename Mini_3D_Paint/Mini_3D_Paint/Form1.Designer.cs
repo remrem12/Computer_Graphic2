@@ -47,13 +47,13 @@ namespace Mini_3D_Paint
             this.lbScale = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
             this.grpObject = new System.Windows.Forms.GroupBox();
-            this.btPrism = new System.Windows.Forms.Button();
-            this.btPyramid = new System.Windows.Forms.Button();
-            this.btCubic = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.btnColor = new System.Windows.Forms.Button();
             this.lstObject = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btPrism = new System.Windows.Forms.Button();
+            this.btPyramid = new System.Windows.Forms.Button();
+            this.btCubic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).BeginInit();
             this.grpTransform.SuspendLayout();
             this.grpObject.SuspendLayout();
@@ -235,36 +235,6 @@ namespace Mini_3D_Paint
             this.grpObject.TabStop = false;
             this.grpObject.Text = "Draw New Object";
             // 
-            // btPrism
-            // 
-            this.btPrism.Location = new System.Drawing.Point(182, 21);
-            this.btPrism.Name = "btPrism";
-            this.btPrism.Size = new System.Drawing.Size(75, 23);
-            this.btPrism.TabIndex = 2;
-            this.btPrism.Text = "Prism";
-            this.btPrism.UseVisualStyleBackColor = true;
-            this.btPrism.Click += new System.EventHandler(this.btPrism_Click);
-            // 
-            // btPyramid
-            // 
-            this.btPyramid.Location = new System.Drawing.Point(101, 21);
-            this.btPyramid.Name = "btPyramid";
-            this.btPyramid.Size = new System.Drawing.Size(75, 23);
-            this.btPyramid.TabIndex = 1;
-            this.btPyramid.Text = "Pyramid";
-            this.btPyramid.UseVisualStyleBackColor = true;
-            this.btPyramid.Click += new System.EventHandler(this.btPyramid_Click);
-            // 
-            // btCubic
-            // 
-            this.btCubic.Location = new System.Drawing.Point(20, 21);
-            this.btCubic.Name = "btCubic";
-            this.btCubic.Size = new System.Drawing.Size(75, 23);
-            this.btCubic.TabIndex = 0;
-            this.btCubic.Text = "Cubic";
-            this.btCubic.UseVisualStyleBackColor = true;
-            this.btCubic.Click += new System.EventHandler(this.btCubic_Click);
-            // 
             // btnColor
             // 
             this.btnColor.Location = new System.Drawing.Point(639, 109);
@@ -292,6 +262,45 @@ namespace Mini_3D_Paint
             this.label1.TabIndex = 6;
             this.label1.Text = "Color";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btPrism
+            // 
+            this.btPrism.Image = global::Mini_3D_Paint.Properties.Resources.prism;
+            this.btPrism.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPrism.Location = new System.Drawing.Point(182, 21);
+            this.btPrism.Name = "btPrism";
+            this.btPrism.Size = new System.Drawing.Size(75, 25);
+            this.btPrism.TabIndex = 2;
+            this.btPrism.Text = "Prism";
+            this.btPrism.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPrism.UseVisualStyleBackColor = true;
+            this.btPrism.Click += new System.EventHandler(this.btPrism_Click);
+            // 
+            // btPyramid
+            // 
+            this.btPyramid.Image = global::Mini_3D_Paint.Properties.Resources.tetrahedron;
+            this.btPyramid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPyramid.Location = new System.Drawing.Point(101, 21);
+            this.btPyramid.Name = "btPyramid";
+            this.btPyramid.Size = new System.Drawing.Size(75, 25);
+            this.btPyramid.TabIndex = 1;
+            this.btPyramid.Text = "Pyramid";
+            this.btPyramid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPyramid.UseVisualStyleBackColor = true;
+            this.btPyramid.Click += new System.EventHandler(this.btPyramid_Click);
+            // 
+            // btCubic
+            // 
+            this.btCubic.Image = global::Mini_3D_Paint.Properties.Resources.Cube;
+            this.btCubic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCubic.Location = new System.Drawing.Point(20, 21);
+            this.btCubic.Name = "btCubic";
+            this.btCubic.Size = new System.Drawing.Size(75, 25);
+            this.btCubic.TabIndex = 0;
+            this.btCubic.Text = "Cubic";
+            this.btCubic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btCubic.UseVisualStyleBackColor = true;
+            this.btCubic.Click += new System.EventHandler(this.btCubic_Click);
             // 
             // Form1
             // 
