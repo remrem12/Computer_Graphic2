@@ -419,5 +419,10 @@ namespace Mini_3D_Paint
         {
 
         }
+
+        private void textureBut_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Aladeen");
+        }
     }
     }

@@ -47,13 +47,14 @@ namespace Mini_3D_Paint
             this.lbScale = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
             this.grpObject = new System.Windows.Forms.GroupBox();
+            this.btPrism = new System.Windows.Forms.Button();
+            this.btPyramid = new System.Windows.Forms.Button();
+            this.btCubic = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.btnColor = new System.Windows.Forms.Button();
             this.lstObject = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btPrism = new System.Windows.Forms.Button();
-            this.btPyramid = new System.Windows.Forms.Button();
-            this.btCubic = new System.Windows.Forms.Button();
+            this.textureBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).BeginInit();
             this.grpTransform.SuspendLayout();
             this.grpObject.SuspendLayout();
@@ -235,34 +236,6 @@ namespace Mini_3D_Paint
             this.grpObject.TabStop = false;
             this.grpObject.Text = "Draw New Object";
             // 
-            // btnColor
-            // 
-            this.btnColor.Location = new System.Drawing.Point(639, 109);
-            this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(130, 30);
-            this.btnColor.TabIndex = 4;
-            this.btnColor.UseVisualStyleBackColor = true;
-            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
-            // 
-            // lstObject
-            // 
-            this.lstObject.FormattingEnabled = true;
-            this.lstObject.Location = new System.Drawing.Point(639, 156);
-            this.lstObject.Name = "lstObject";
-            this.lstObject.Size = new System.Drawing.Size(282, 199);
-            this.lstObject.TabIndex = 5;
-            this.lstObject.SelectedIndexChanged += new System.EventHandler(this.lstObject_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(636, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Color";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btPrism
             // 
             this.btPrism.Image = global::Mini_3D_Paint.Properties.Resources.prism;
@@ -302,11 +275,50 @@ namespace Mini_3D_Paint
             this.btCubic.UseVisualStyleBackColor = true;
             this.btCubic.Click += new System.EventHandler(this.btCubic_Click);
             // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(639, 109);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(130, 30);
+            this.btnColor.TabIndex = 4;
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // lstObject
+            // 
+            this.lstObject.FormattingEnabled = true;
+            this.lstObject.Location = new System.Drawing.Point(639, 156);
+            this.lstObject.Name = "lstObject";
+            this.lstObject.Size = new System.Drawing.Size(282, 199);
+            this.lstObject.TabIndex = 5;
+            this.lstObject.SelectedIndexChanged += new System.EventHandler(this.lstObject_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(636, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Color";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textureBut
+            // 
+            this.textureBut.Location = new System.Drawing.Point(775, 109);
+            this.textureBut.Name = "textureBut";
+            this.textureBut.Size = new System.Drawing.Size(146, 30);
+            this.textureBut.TabIndex = 7;
+            this.textureBut.Text = "Add Texture";
+            this.textureBut.UseVisualStyleBackColor = true;
+            this.textureBut.Click += new System.EventHandler(this.textureBut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 509);
+            this.Controls.Add(this.textureBut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstObject);
             this.Controls.Add(this.btnColor);
@@ -353,6 +365,7 @@ namespace Mini_3D_Paint
         private System.Windows.Forms.Button btCubic;
         private System.Windows.Forms.ListBox lstObject;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button textureBut;
     }
 }
 
