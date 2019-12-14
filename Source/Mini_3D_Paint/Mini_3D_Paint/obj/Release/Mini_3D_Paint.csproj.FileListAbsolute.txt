@@ -1,0 +1,17 @@
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\Mini_3D_Paint.exe.config
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\Mini_3D_Paint.exe
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\Mini_3D_Paint.pdb
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.pdb
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.xml
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.SceneGraph.pdb
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.SceneGraph.xml
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.WinForms.pdb
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\bin\Release\SharpGL.WinForms.xml
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.csprojAssemblyReference.cache
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.Form1.resources
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.Properties.Resources.resources
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.csproj.GenerateResource.cache
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.csproj.CoreCompileInputs.cache
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.csproj.CopyComplete
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.exe
+D:\CLASS\ĐHMT\Computer_Graphic2\Mini_3D_Paint\Mini_3D_Paint\obj\Release\Mini_3D_Paint.pdb
