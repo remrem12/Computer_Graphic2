@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SharpGL;
-
+using SharpGL.SceneGraph.Assets;
 namespace Mini_3D_Paint
 {
     public partial class Form1 : Form
@@ -19,7 +19,8 @@ namespace Mini_3D_Paint
         Color currentColor = new Color(255, 255, 255);   //Màu hiện tại  
         int selected = -1;
         Camera camera = new Camera();
-
+        Texture mytexture = new Texture(); // gán texture
+        bool isTexturing = false;
         public Form1()
         {
             InitializeComponent();   
@@ -422,7 +423,20 @@ namespace Mini_3D_Paint
 
         private void textureBut_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Aladeen");
+            isTexturing = true;
+            gl.Enable(OpenGL.GL_TEXTURE_2D); // bật chế độ gán texture
+            mytexture.Bind(gl); // liên kết với gl
+            if (isTexturing)
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                // mở file
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {                    
+                    mytexture.Destroy(openGLControl.OpenGL);//huỷ texture cũ        
+                    mytexture.Create(openGLControl.OpenGL, openFileDialog1.FileName);//tạo texture mới                    
+                    openGLControl.Invalidate();//vẽ lại
+                }
+            };
         }
     }
     }
