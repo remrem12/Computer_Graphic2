@@ -158,10 +158,79 @@ namespace Mini_3D_Paint
             gl.PushMatrix();
             gl.Scale(scale.X, scale.Y, scale.Z);
             gl.Rotate(rotation.X, rotation.Y, rotation.Z);
-
+            //Vẽ 6 mặt
             gl.Begin(OpenGL.GL_QUADS);
-            foreach (int i in vertexIndex)
-                gl.Vertex(vertex[i]);
+            //đáy
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[3]);
+            gl.End();
+
+
+            //đỉnh
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[4]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[5]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[6]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[7]);
+            gl.End();
+
+            //sau
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[5]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[4]);
+
+            gl.End();
+
+            //trước
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[6]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[7]);
+            gl.End();
+
+            //phải
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[1]);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[2]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[6]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[5]);
+            gl.End();
+
+            //trái
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.TexCoord(0, 1);
+            gl.Vertex(vertex[0]);
+            gl.TexCoord(1, 1);
+            gl.Vertex(vertex[3]);
+            gl.TexCoord(1, 0);
+            gl.Vertex(vertex[7]);
+            gl.TexCoord(0, 0);
+            gl.Vertex(vertex[4]);
             gl.End();
             
             int[] index = new int[]
