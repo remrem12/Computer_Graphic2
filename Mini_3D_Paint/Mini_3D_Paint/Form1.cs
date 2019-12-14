@@ -378,40 +378,40 @@ namespace Mini_3D_Paint
             // x aix
 
             gl.Vertex(-4.0, 0.0f, 0.0f);
-            gl.Vertex(4.0, 0.0f, 0.0f);
+            gl.Vertex(6.0, 0.0f, 0.0f);
 
-            gl.Vertex(4.0, 0.0f, 0.0f);
-            gl.Vertex(3.0, 1.0f, 0.0f);
+            gl.Vertex(6.0, 0.0f, 0.0f);
+            gl.Vertex(5.0, 1.0f, 0.0f);
 
-            gl.Vertex(4.0, 0.0f, 0.0f);
-            gl.Vertex(3.0, -1.0f, 0.0f);
+            gl.Vertex(6.0, 0.0f, 0.0f);
+            gl.Vertex(5.0, -1.0f, 0.0f);
             gl.End();
 
             // y 
             gl.Color(0.0, 1.0, 0.0); // green y
             gl.Begin(OpenGL.GL_LINES);
             gl.Vertex(0.0, -4.0f, 0.0f);
-            gl.Vertex(0.0, 4.0f, 0.0f);
+            gl.Vertex(0.0, 6.0f, 0.0f);
 
-            gl.Vertex(0.0, 4.0f, 0.0f);
-            gl.Vertex(1.0, 3.0f, 0.0f);
+            gl.Vertex(0.0, 6.0f, 0.0f);
+            gl.Vertex(1.0, 5.0f, 0.0f);
 
-            gl.Vertex(0.0, 4.0f, 0.0f);
-            gl.Vertex(-1.0, 3.0f, 0.0f);
+            gl.Vertex(0.0, 6.0f, 0.0f);
+            gl.Vertex(-1.0, 5.0f, 0.0f);
             gl.End();
 
             // z 
             gl.Color(0.0, 0.0, 1.0); // blue z
             gl.Begin(OpenGL.GL_LINES);
             gl.Vertex(0.0, 0.0f, -4.0f);
-            gl.Vertex(0.0, 0.0f, 4.0f);
+            gl.Vertex(0.0, 0.0f, 6.0f);
 
 
-            gl.Vertex(0.0, 0.0f, 4.0f);
-            gl.Vertex(0.0, 1.0f, 3.0f);
+            gl.Vertex(0.0, 0.0f, 6.0f);
+            gl.Vertex(0.0, 1.0f, 5.0f);
 
-            gl.Vertex(0.0, 0.0f, 4.0f);
-            gl.Vertex(0.0, -1.0f, 3.0f);
+            gl.Vertex(0.0, 0.0f, 6.0f);
+            gl.Vertex(0.0, -1.0f, 5.0f);
             gl.End();
         }
 
