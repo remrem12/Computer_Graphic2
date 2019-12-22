@@ -79,7 +79,7 @@ namespace Mini_3D_Paint
         //public bool selected = false;
         //Vẽ hình khối
         public virtual void Draw(OpenGL gl, bool selected = false) { }         
-        
+        // vẽ viền
         protected void DrawBorder(OpenGL gl, bool selected, float[][] vertex, int[] index)
         {
             if (selected)
@@ -115,20 +115,20 @@ namespace Mini_3D_Paint
                
         public override void Draw(OpenGL gl, bool selected = false)
         {
-            /*  gốc toạ độ ở tâm hình lập phương
+            /*  gốc toạ độ ở tâm mặt phẳng đáy hình lập phương
              *  
              *    4 -| - - - 5
              *  / |  |     / |
              * 7 - - | - 6   |
-             *-|--|--|O--|---|----
+             *-|--|--|--|---|----
              * |  0 -| - | - 1
-             * |/    |   | /  
+             * |/    O   | /  
              * 3 - - | - 2
              * --a---
             */ 
-
+            
             float x = position.X, y = position.Y, z = position.Z,
-               a = 2;
+               a = 2; // nửa cạnh
 
             float[][] vertex = new float[][]
             {
@@ -145,14 +145,14 @@ namespace Mini_3D_Paint
 
             
 
-            int[] vertexIndex = new int[] {
+            /*int[] vertexIndex = new int[] {
                 0,1,2,3,
                 4,5,6,7,
                 1,5,6,2,
                 0,4,7,3,
                 0,1,5,4,
                 3,2,6,7
-            };
+            };*/
 
             gl.Color(color.R, color.G, color.B);
             gl.PushMatrix();
@@ -261,8 +261,9 @@ namespace Mini_3D_Paint
              *    / |\ \_
              *   / /  \   \_ 
              *  /  0 - \- - 1
-             * / /      \  /  
+             * / /   O  \  /  
              * 3 - - - - 2
+             * --a--
             */
 
             float x = position.X, y = position.Y, z = position.Z,

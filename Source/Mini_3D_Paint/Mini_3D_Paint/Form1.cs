@@ -342,7 +342,7 @@ namespace Mini_3D_Paint
         void drawGrid(OpenGL gl)    // vẽ trục tọa độ
         {
             gl.LineWidth(1.0f);
-            int size = 15;
+            int size = 15; // số đường
             for (int i = 0; i < size; i++)
             {
                 gl.Begin(OpenGL.GL_LINES);
