@@ -56,15 +56,20 @@ namespace Mini_3D_Paint
 
         public void verticalRotate(double deg)
         {
+            // khoảng cách từ O đến camera khi chiếu camera lên Oxy
             double hypoXY = Math.Sqrt(viewX * viewX + viewY * viewY);
+            // khoảng cách từ O đến camera
             double hypoXYZ = Math.Sqrt(hypoXY * hypoXY + viewZ * viewZ);
             //if (viewX < 0 && viewY < 0) hypoXY = -hypoXY;
+            // góc ban đầu tạo bởi OCamera với mặt Oxy
             double rootAngle = Math.Acos(hypoXY / hypoXYZ); // radians
             double cosX = viewX / hypoXY;
             double cosY = viewY / hypoXY;
+            // đổi sang độ
             double rootDeg = rootAngle * 180 / Math.PI;
+            // cập nhật lại góc khi nhận vào thay đổi
             rootDeg += deg;
-
+            // tính lại tọa độ camera từ góc mới cập nhật
             double radians = rootDeg * Math.PI / 180;
             hypoXY = hypoXYZ * Math.Cos(radians);
             viewX = hypoXY * cosX;
